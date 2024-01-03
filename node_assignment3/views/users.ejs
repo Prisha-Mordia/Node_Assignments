@@ -1,0 +1,17 @@
+<!-- views/users.ejs -->
+<%- include('partials/header') %>
+<div class="container mt-4">
+  <h2>Users</h2>
+  <ul class="list-group">
+    <% users.forEach(user => { %>
+      <li class="list-group-item">
+        <%= user.name %>
+        <a href="/users/edit/<%= user.id %>" class="btn btn-primary btn-sm float-right mr-2">Edit</a>
+        <a href="/users/delete/<%= user.id %>" class="btn btn-danger btn-sm float-right">Delete</a>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/users/new" class="btn btn-success mt-3">Add New User</a>
+  <a href="/" class="btn btn-secondary mt-3">Go Back</a>
+</div>
+<%- include('partials/footer') %>

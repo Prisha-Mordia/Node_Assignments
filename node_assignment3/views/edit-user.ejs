@@ -1,0 +1,14 @@
+<!-- views/edit-user.ejs -->
+<%- include('partials/header') %>
+<div class="container mt-4">
+  <h2>Edit User</h2>
+  <form method="post" action="/users/edit/<%= user.id %>">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+  <a href="/users" class="btn btn-secondary mt-3">Go Back</a>
+</div>
+<%- include('partials/footer') %>

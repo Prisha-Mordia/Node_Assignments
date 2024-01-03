@@ -1,0 +1,52 @@
+<!-- views/index.ejs -->
+<%- include('partials/header') %>
+<div class="container mt-4">
+  <h2>Welcome to the Admin Panel</h2>
+  <p>You are logged in as <%= username %>.</p>
+
+  <!-- Dummy Data Representation -->
+  <div class="card mt-4">
+    <div class="card-header">
+      Dummy Data Representation
+    </div>
+    <div class="card-body">
+      <canvas id="dummyChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="mt-3">
+    <a href="/users" class="btn btn-primary">View Users</a>
+    <a href="/logout" class="btn btn-danger">Logout</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Dummy Data for Chart
+  const chartData = {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{
+      label: 'Dummy Data',
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+      data: [65, 59, 80, 81, 56],
+    }],
+  };
+
+  // Create Chart
+  const ctx = document.getElementById('dummyChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: chartData,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+</script>
+<%- include('partials/footer') %>
